@@ -8,7 +8,7 @@ app = Flask(__name__)
 
 # Function to run the OpenCV code
 def run_camera():
-    webcam = cv2.VideoCapture(1)
+    webcam = cv2.VideoCapture(0)
     pTime = 0
 
     while True:
