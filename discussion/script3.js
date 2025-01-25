@@ -109,3 +109,83 @@ function addComment() {
   // Clear the textarea
   document.getElementById('new-comment').value = '';
 }
+// Function to enable editing of the topic
+// Function to enable editing of the topic
+function editTopic(topicId) {
+  // Get the button element that was clicked (the topic button)
+  const button = document.querySelector(`#${topicId}`);
+  const currentText = button.innerText;
+
+  // Replace the topic button with a text input field
+  const inputField = document.createElement('input');
+  inputField.type = 'text';
+  inputField.value = currentText;
+  button.parentNode.replaceChild(inputField, button);
+
+  // Replace the Edit button with a Save button
+  const editButton = document.querySelector(`#${topicId} + .edit-button`);
+  const saveButton = document.createElement('button');
+  saveButton.innerText = 'Save';
+  saveButton.classList.add('save-button');
+  
+  // Define save button functionality
+  saveButton.onclick = function () {
+    saveTopic(topicId, inputField.value);
+  };
+
+  editButton.replaceWith(saveButton);
+}
+
+// Function to enable editing of the topic
+function editTopic(topicId) {
+  // Get the topic button element that was clicked
+  const button = document.querySelector(`#${topicId}`);
+  const currentText = button.innerText;
+
+  // Replace the topic button with a text input field
+  const inputField = document.createElement('input');
+  inputField.type = 'text';
+  inputField.value = currentText;
+  button.parentNode.replaceChild(inputField, button);
+
+  // Get the Edit button next to the topic and replace it with Save button
+  const editButton = document.querySelector(`#${topicId} + .edit-button`);
+  const saveButton = document.createElement('button');
+  saveButton.innerText = 'Save';
+  saveButton.classList.add('save-button');
+
+  // Set the functionality for Save button
+  saveButton.onclick = function () {
+    saveTopic(topicId, inputField.value);
+  };
+
+  // Replace the Edit button with the Save button
+  editButton.parentNode.replaceChild(saveButton, editButton);
+}
+
+// Function to save the updated topic
+function saveTopic(topicId, newText) {
+  // Get the input field to extract the new text
+  const inputField = document.querySelector(`#${topicId}`);
+  
+  // Create a new button with the updated topic text
+  const button = document.createElement('button');
+  button.classList.add('topic-button');
+  button.id = topicId;
+  button.innerText = newText;
+
+  // Replace the input field with the updated button
+  inputField.parentNode.replaceChild(button, inputField);
+
+  // Now replace the Save button with the Edit button
+  const saveButton = document.querySelector('.save-button');
+  const editButton = document.createElement('button');
+  editButton.classList.add('edit-button');
+  editButton.innerText = 'Edit';
+  editButton.onclick = function () {
+    editTopic(topicId);
+  };
+
+  // Replace the Save button with the Edit button
+  saveButton.parentNode.replaceChild(editButton, saveButton);
+}
