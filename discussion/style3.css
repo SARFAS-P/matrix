@@ -218,3 +218,39 @@ button:disabled, .poll-button:disabled {
 #poll-results {
   display: none;
 }
+.edit-button {
+  background-color: #FFC107; /* Yellow */
+  border-color: #FFC107;
+  margin-left: 10px;
+}
+
+.edit-button:hover {
+  background-color: #e0a800; /* Slightly darker yellow */
+}
+
+/* Styling for Save button */
+.save-button {
+  background-color: #28A745; /* Green */
+  border-color: #28A745;
+  margin-left: 10px;
+}
+
+.save-button:hover {
+  background-color: #218838; /* Slightly darker green */
+}
+
+/* Styling for input field used during editing */
+input[type="text"] {
+  font-size: 16px;
+  padding: 8px 12px;
+  border: 2px solid #007BFF;
+  border-radius: 5px;
+  width: 300px;
+  margin-right: 10px;
+  transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus {
+  outline: none;
+  border-color: #0056b3;
+}
