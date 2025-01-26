@@ -5,7 +5,7 @@ document.getElementById('authenticate-btn').addEventListener('click', function (
         document.getElementById('auth-error').textContent = 'Please enter a valid Voter ID.';
         return;
     }
-  
+
     fetch('http://localhost:3000/authenticate', {
         method: 'POST',
         headers: {
@@ -27,9 +27,9 @@ document.getElementById('authenticate-btn').addEventListener('click', function (
     .catch(error => {
         document.getElementById('auth-error').textContent = 'Error: ' + error.message;
     });
-  });
+});
   
-  function populateCandidates() {
+function populateCandidates() {
     const candidates = [
         { name: 'John Doe', symbol: '🗳️' },
         { name: 'Jane Smith', symbol: '⚖️' },
@@ -45,9 +45,9 @@ document.getElementById('authenticate-btn').addEventListener('click', function (
         option.textContent = `${candidate.name} ${candidate.symbol}`;
         candidateSelect.appendChild(option);
     });
-  }
-  
-  document.getElementById('submit-vote-btn').addEventListener('click', function () {
+}
+
+document.getElementById('submit-vote-btn').addEventListener('click', function () {
     const candidateIndex = parseInt(document.getElementById('candidate-select').value);
     const voterId = document.getElementById('voter-id').value.trim();
   
@@ -75,6 +75,7 @@ document.getElementById('authenticate-btn').addEventListener('click', function (
             document.getElementById('confirmation-message').textContent = data.message;
             document.getElementById('confirmation-message').style.display = 'block';
             document.getElementById('back-to-id-btn').style.display = 'block'; // Show the back button
+            document.getElementById('back-to-index-btn').style.display = 'block'; // Show the back to index button
         } else {
             alert('Something went wrong. Please try again.');
         }
@@ -82,13 +83,14 @@ document.getElementById('authenticate-btn').addEventListener('click', function (
     .catch(error => {
         alert('Error: ' + error.message);
     });
-  });
-  
-  // Function to handle redirect to Voter ID page
-  document.getElementById('back-to-id-btn').addEventListener('click', function () {
+});
+
+// Function to handle redirect to Voter ID page
+document.getElementById('back-to-id-btn').addEventListener('click', function () {
     // Hide the confirmation message and the back button
     document.getElementById('confirmation-message').style.display = 'none';
     document.getElementById('back-to-id-btn').style.display = 'none';
+    document.getElementById('back-to-index-btn').style.display = 'none'; // Hide the back to index button
     
     // Show the Voter ID section again
     document.getElementById('voter-id-section').style.display = 'block';
@@ -96,5 +98,9 @@ document.getElementById('authenticate-btn').addEventListener('click', function (
     // Clear the Voter ID input and candidate selection
     document.getElementById('voter-id').value = '';
     document.getElementById('candidate-select').selectedIndex = 0;  // Reset candidate selection
-  });
-  
+});
+
+// Event listener for the back to index button
+document.getElementById('back-to-index-btn').addEventListener('click', function () {
+    window.location.href = '../../matrix/index1.html'; // Redirect to index.html
+});
