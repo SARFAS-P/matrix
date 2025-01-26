@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trending Topics</title>
+    <link rel="stylesheet" href="style3.css">
+</head>
+<body>
+    <header>
+        <h1>People's Voice</h1>
+    </header>
+
+    <div class="container">
+        <section class="topics">
+            <h2>Trending Topics</h2>
+            <ul id="topics-list">
+                <!-- Dynamically generated topic list will appear here -->
+                <li>
+                    <!-- Each topic will have a button and an Edit button -->
+                    <button class="topic-button" id="topic1">Nirmala Sitaram imposes tax on popcorn !!</button>
+                    <button class="edit-button" onclick="editTopic('topic1')">Edit</button>
+                </li>
+                <li>
+                    <button class="topic-button" id="topic2">GST on pre-packaged food items</button>
+                    <button class="edit-button" onclick="editTopic('topic2')">Edit</button>
+                </li>
+                <!-- More topics can be added dynamically -->
+            </ul>
+        </section>
+
+        <section class="discussion" id="discussion-section">
+            <h2 id="current-topic"></h2>
+            <p id="topic-description"></p>
+            <div id="discussion-posts"></div>
+            <!-- Add comment section -->
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; People's Voice</p>
+    </footer>
+
+    <script src="script3.js"></script>
+</body>
+</html>

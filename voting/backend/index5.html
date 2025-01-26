@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grievance Ticket Submission</title>
+    <!-- Link to the external CSS file for styling -->
+    <link rel="stylesheet" href="style5.css">
+</head>
+<body>
+
+    <div class="container">
+        <h2>Grievance Ticket Submission</h2>
+
+        <form id="grievanceForm" action="/submit-grievance" method="POST">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" name="phone" required pattern="^\d{10}$" placeholder="Enter 10-digit phone number">
+
+            <label for="address">Address</label>
+            <input type="text" id="address" name="address" required>
+
+            <label for="description">Grievance Description</label>
+            <textarea id="description" name="description" required></textarea>
+
+            <button type="submit">Submit Grievance</button>
+            <div class="error" id="errorMessage"></div>
+        </form>
+    </div>
+
+    <!-- Link to the external JavaScript file for form validation -->
+    <script src="script5.js"></script>
+
+</body>
+</html>
