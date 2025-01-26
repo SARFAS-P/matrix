@@ -25,8 +25,8 @@ const candidates = [
 const transporter = nodemailer.createTransport({
     service: 'gmail', // Or any other service like Outlook, etc.
     auth: {
-        user: 'vgc.037@gmail.com',   // Replace with your email
-        pass: 'Kowsthubham2024'     // Replace with your email password
+        user: 'strangesathan@gmail.com',   // Replace with your email
+        pass: 'sathan@2006'     // Replace with your email password
     }
 });
 
